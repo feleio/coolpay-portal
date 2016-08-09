@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'login/index'
 
-  get 'login/login'
+  post 'login/login'
 
   root 'main#index'
 

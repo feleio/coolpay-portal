@@ -1,2 +1,14 @@
-<h1>Login#index</h1>
-<p>Find me in app/views/login/index.html.erb</p>
+<div class="container">
+
+  <form class="form-signin" action="/login/login">
+    <h1 class="form-signin-heading">Coolpay portal</h1>
+    <h3 class="form-signin-heading">Please sign in</h3>
+    <label for="inputEmail" class="sr-only">User Name</label>
+    <input type="text" id="inputEmail" class="form-control" placeholder="User Name" required autofocus>
+    <label for="inputPassword" class="sr-only">Key</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Key" required>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
+
+</div>
