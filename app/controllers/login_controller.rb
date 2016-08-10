@@ -1,14 +1,9 @@
 class LoginController < ApplicationController
   def index
-    if session[:user_token]
-      redirect_to '/'
-    end
-
     @login_failed = false
   end
 
   def login
-
     response = HTTParty.post("https://coolpay.herokuapp.com/api/login", 
       :body => { :username => params[:username], 
                  :apikey => params[:key]

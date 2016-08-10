@@ -18,6 +18,24 @@
      
       <ul class="nav navbar-nav navbar-right">
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2 class="pull-right"><a class="btn btn-success" href="/recipients/new">Add Recipient</a></h2>
+      <h2>Recipients</h2>
+      <ul class="list-group">
+        <% if @recipients != nil %>
+        <% @recipients.each do |recipient| %>
+        <li class="list-group-item">
+          <span class="pull-right">
+            <a class="btn btn-primary btn-xs" href="#<%= recipient.id %>">Pay</a>
+          </span>
+          <%= recipient.name %>
+        </li>
+        <% end %>
+        <% end %>
+      </ul>
+    </div>
+</div>

@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   get 'recipients/index'
 
+  get 'recipients/new'
+
+  post 'recipients/create'
+
   get 'payments/index'
 
   root 'recipients#index'

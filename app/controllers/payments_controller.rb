@@ -3,5 +3,7 @@ class PaymentsController < ApplicationController
     if !session[:user_token]
       redirect_to '/login/index'
     end
+
+
   end
 end
