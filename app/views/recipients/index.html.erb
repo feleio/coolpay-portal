@@ -17,6 +17,7 @@
       </ul>
      
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="/login/logout">Logout</a></li>
       </ul>
     </div>
   </div>
@@ -30,7 +31,7 @@
         <% @recipients.each do |recipient| %>
         <li class="list-group-item">
           <span class="pull-right">
-            <a class="btn btn-primary btn-xs" href="#<%= recipient.id %>">Pay</a>
+            <a class="btn btn-primary btn-xs" href="/payments/new?recipient_id=<%= recipient.id %>&recipient_name=<%= recipient.name %>">Pay</a>
           </span>
           <%= recipient.name %>
         </li>

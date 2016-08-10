@@ -19,4 +19,9 @@ class LoginController < ApplicationController
       render 'login/index'
     end
   end
+
+  def logout
+    session.delete(:user_token)
+    redirect_to '/login/index'
+  end
 end

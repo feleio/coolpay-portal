@@ -17,24 +17,47 @@
       </ul>
      
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="/login/logout">Logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h2 class="pull-right"><a class="btn btn-success" href="/recipients/new">Add Recipient</a></h2>
+      <h2 class="pull-right"><a class="btn btn-success" href="/recipients/index">Make Payment</a></h2>
       <h2>Payments History</h2>
+      <h2>Balance : £ <%= @balance %></h2>
       <ul class="list-group">
-        <% if @payments != nil %>
-        <% @payments.each do |payment| %>
         <li class="list-group-item">
-          <span class="pull-right">
-            <a class="btn btn-primary btn-xs" href="#<%= recipient.id %>">Pay</a>
-          </span>
+        <table class="table">
+          <tr>
+            <th>Paid to</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+          <% if @payments != nil %>
+          <% @payments.each do |payment| %>
+          <tr>
+            <td><%= @recipients_names[payment.recipient_id] %></td>
+            <td>£ <%= payment.amount %></td>
+            <%
+              def get_status_class(status)
+                if status == 'processing'
+                    return 'label-warning'
+                elsif status == 'paid'
+                    return 'label-success'
+                elsif status == 'failed'
+                    return 'label-danger'
+                end
+              end
+              %>
+            <td><span class="label <%= get_status_class(payment.status)%>"><%= payment.status %></span></td>
+          </tr>
+          <% end %>
+          <% end %>
+        </table>
         </li>
-        <% end %>
-        <% end %>
       </ul>
     </div>
 </div>
+<%= @resp %>

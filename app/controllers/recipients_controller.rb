@@ -35,7 +35,7 @@ class RecipientsController < ApplicationController
       :headers => { 'Content-Type' => 'application/json',
                     'Authorization' => "Bearer #{session[:user_token]}" } )
 
-    if response.code != 200
+    if response.code == 200
       redirect_to '/recipients/index'
     elsif response.code == 401
       redirect_to '/login/index'

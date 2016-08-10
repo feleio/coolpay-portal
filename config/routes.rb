@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   post 'login/login'
 
+  get 'login/logout'
+
   get 'recipients/index'
 
   get 'recipients/new'
@@ -12,6 +14,10 @@ Rails.application.routes.draw do
   post 'recipients/create'
 
   get 'payments/index'
+  
+  get 'payments/new'
+  
+  post 'payments/create'
 
   root 'recipients#index'
 
